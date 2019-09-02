@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<!-- the full dict for a president is sent here as pres by the route -->
+	<h1>{{ li['Senator'] }}</h1>
+
+
+
+  <p>{{ li['Senator'] }} is the state senator of Florida's district {{ li['District'] }}.</p>
+
+  <p>Party: {{ li['Party'] }} </p>
+  <p>Districts: {{ li['Counties'] }} </p>
+  <p>Your state senator can be reached by visiting {{ li['Link'] }} </p>
+
+	<!-- NOTE the way to link to a route: Use the function name -->
+	<p><a href="{{ url_for('index') }}">Return to the list</a> to select a different state senator.</p>
+
+  {% endblock %}

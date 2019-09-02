@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div id = 'heading'>
+  <h1>Florida State Senators Index</h1>
+</div>
+
+
+<p>Select any state senator to get some brief information on them!</p>
+
+
+
+    <ul>
+    {% for pair in pairs %}
+        <li><a href="{{ url_for('detail', num=pair[0] ) }}">{{ pair[1] }}</a></li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

@@ -4,11 +4,11 @@ from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 
 app = Flask(__name__)
+application = app
 
 #create new secret key
 app.config['SECRET_KEY'] = '7A8wUjBFvv96DY8rcXZpTnUjGyjH6bh9'
 
-Bootstrap(app)
 
 senators_list = convert_to_dict("Florida_State_Senators.csv")
 
@@ -17,9 +17,9 @@ def index():
     district_list = []
     name_list = []
     # List will append the Unique ID – district – and the senator's name
-    for senator in senators_list:
-        district_list.append(senator['District'])
-        name_list.append(senator['Senator'])
+    for li in senators_list:
+        district_list.append(li['District'])
+        name_list.append(li['Senator'])
         # zip() is a built-in function that combines lists
         # creating a new list of tuples
     pairs_list = zip(district_list, name_list)
@@ -31,11 +31,11 @@ def index():
 
 @app.route('/senator/<num>')
 def detail(num):
-    for senator in senators_list:
-        if senator['District'] == num:
-            senator_dict = senator
+    for li in senators_list:
+        if li['District'] == num:
+            senator_dict = li
             break
-    return render_template('senator.html', senator=senator_dict, the_title=senator_dict['Senator'])
+    return render_template('senator.html', li=senator_dict, the_title=senator_dict['Senator'])
 # your code here
 
 

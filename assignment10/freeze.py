@@ -1,6 +1,6 @@
 from flask_frozen import Freezer
 # instead of routes, use the name of the file that runs YOUR Flask app
-from charts import app
+from senate import app
 
 app.config['FREEZER_RELATIVE_URLS'] = True
 
